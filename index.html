@@ -1,9 +1,40 @@
+<?php
+
+if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['message'])){
+	if (!empty($_POST['fname']) && (!empty($_POST['lname']) && (!empty($_POST['email']) && (!empty($_POST['message'])){
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$email = $_POST['email'];
+	$message = $_POST['message'];
+
+	if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+	echo 'Kindly Provide Valid Email';
+}else{
+	$body = $fname."\n".$lname."\n".$email."\n".$message;
+	if(mail('erankursaini4696@gmail.com','Website Response',$body,'From: officialanku.github.io/response.github.io')){
+	echo 'Thanks for contacting us.';
+}else{
+	echo 'there is a problem in sending mail';
+}
+}
+
+}else{
+	echo 'All Fields are required';
+}else{
+	echo 'Not OK';
+}
+}
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Contact Form</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/demo.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
@@ -11,12 +42,12 @@
 <div class="container">
 	<div class="main">
 		<div class="info">Fill your details</div>
-		<form action="validation.php" method="post" name="form" class="form-box">
-			<input type="text" name="name" class="inp" placeholder="Enter your name" required><br>
-			<input type="number" name="phone" class="inp" placeholder="Enter your Mobile" required><br>
-			<input type="email" name="email" class="inp" placeholder="Enter your email" required><br>
-			<textarea name="msg" class="msg-box" placeholder="Enter your message Here.." required></textarea><br>
-            <input type="submit" name="submit" value="Send" class="sub-btn">
+		<form action="" method="post">
+			<input type="text" name="fname" placeholder="Enter your name" required><br>
+			<input type="text" name="lname" placeholder="Enter your Mobile" required><br>
+			<input type="email" name="email" placeholder="Enter your email" required><br>
+			<textarea name="message" placeholder="Enter your message Here.." required></textarea><br>
+            <input type="submit" name="submit" value="Contact me" class="sub-btn">
 		</form>
 	</div>
 </div>
