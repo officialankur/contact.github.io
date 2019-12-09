@@ -4,11 +4,11 @@ if(isset($_POST['submit'])){
 	$name=$_POST['name'];
 	$phone=$_POST['phone'];
 	$email=$_POST['email'];
-	$sel=$_POST['sel'];
+	$msg=$_POST['msg'];
 
 	$to='erankursaini4696@gmail.com';
 	$subject='some details';
-	$message="Name: ".$name."\n"."select: "."\n".$sel;
+	$message="Name: ".$name."\n"."Wrote the following: "."\n".$msg;
 	$headers="From: ".$email;
 
 	if (mail($to,$subject,$sel,$headers)) {
